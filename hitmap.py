@@ -29,7 +29,7 @@ print('data:', data)
 # make log scale colorbar
 norm = mcolors.SymLogNorm(linthresh=1, vmin=0, vmax=data.max()*10)
 # plot imshow and colorbar
-image_imshow = ax.imshow(data, cmap="tab20b", aspect='auto', norm=norm)
+image_imshow = ax.imshow(data, cmap="viridis", aspect='auto', norm=norm)
 fig.colorbar(image_imshow, orientation='horizontal')
 
 # hide ticks and it's label
