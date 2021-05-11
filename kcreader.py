@@ -79,9 +79,9 @@ BITS_MASK_SPILLCOUNT_FOOTER = ((2 ** BITS_SIZE_SPILLCOUNT - 1)
 BITS_MASK_BOARDID = ((2 ** BITS_SIZE_BOARDID - 1)
                      << (BITS_SIZE_HEADER_LOWER))
 BITS_MASK_EMCOUNT = ((2 ** BITS_SIZE_EMCOUNT - 1)
-                     << (BITS_SIZE_WRITECOUNT + BITS_SIZE_FOOTER_LOWER + 8))
+                     << (BITS_SIZE_WRITECOUNT + BITS_SIZE_FOOTER_LOWER))
 BITS_MASK_WRITECOUNT = ((2 ** BITS_SIZE_WRITECOUNT - 1)
-                        << (BITS_SIZE_FOOTER_LOWER + 8))
+                        << (BITS_SIZE_FOOTER_LOWER))
 
 BITS_MASK_SIG_MPPC = ((2 ** BITS_SIZE_SIG_MPPC - 1)
                       << (BITS_SIZE_SIG_PMT + BITS_SIZE_SIG_MRSYNC + BITS_SIZE_TDC))
@@ -120,11 +120,11 @@ def get_boardid(data):
 
 
 def get_emcount(data):
-    return ((data & BITS_MASK_EMCOUNT) >> (BITS_SIZE_WRITECOUNT + BITS_SIZE_FOOTER_LOWER + 8))
+    return ((data & BITS_MASK_EMCOUNT) >> (BITS_SIZE_WRITECOUNT + BITS_SIZE_FOOTER_LOWER))
 
 
 def get_writecount(data):
-    return ((data & BITS_MASK_WRITECOUNT) >> (BITS_SIZE_FOOTER_LOWER + 8))
+    return ((data & BITS_MASK_WRITECOUNT) >> (BITS_SIZE_FOOTER_LOWER))
 
 
 def get_sig_mppc(data):
