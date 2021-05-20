@@ -39,6 +39,8 @@ def get_option():
         '-ft', '--footer', action='store_true', help='disable print footer')
     argparser.add_argument(
         '-td', '--tdc', action='store_true', help='disable print tdc')
+    argparser.add_argument(
+        '-tm', '--timestamp', action='store_true', help='read data with 8 bytes timestamp after header')
 
     return argparser.parse_args()
 
@@ -155,6 +157,10 @@ def main(path_to_file):
             line_num = int(f.tell() / 13) - 1
 
             if header_or_not(int_13bytes):
+                # skip timestamp
+                if args.timestamp:
+                    timestamp = f.read(8)
+
                 # header
                 if args.header:
                     # disable
